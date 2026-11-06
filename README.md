@@ -59,3 +59,7 @@ La pestaña Antigüedad usa el año y mes de operación de cada unidad en Operat
 Los umbrales de revamping y decomisionamiento son escenarios ilustrativos editables por tecnología, no recomendaciones certificadas ni órdenes de retiro. La evaluación real depende de condición, historial, eficiencia, seguridad y necesidades de red. Los objetivos se calculan como año de operación más umbral. El CSV exporta los parámetros y resultados de la vista seleccionada.
 
 La plataforma mantiene el segmento de cuenta en el dominio. La dirección operativa es https://ra-sur18pr.bydproyectosca.chatgpt.site ; el cambio de etiqueta no permite asignar por sí solo el dominio raíz ra-sur18pr.chatgpt.site.
+
+## Escenarios de sustitución de petróleo
+
+La pestaña **Escenarios** permite seleccionar unidades, definir energía objetivo, ajustar costos y factores de planta y comparar solar centralizada, solar distribuida con enfoque PR100, mezcla solar/eólica y transición con gas. Distingue capacidad MW, energía GWh y almacenamiento MW/MWh. Incluye referencias oficiales de PR100 a 2050, guardado local de cuatro escenarios y exportación JSON. Los presets no reproducen PR100 y los supuestos iniciales son ilustrativos; el balance anual y los costos parciales no prueban suficiencia horaria ni autorizan retiros. Método, alcance y fuentes: [docs/REPLACEMENT_SCENARIOS.md](docs/REPLACEMENT_SCENARIOS.md).
