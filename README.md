@@ -19,7 +19,7 @@ Fuente: https://www.eia.gov/electricity/data/eia860m/
 
 La EIA publica datos mensuales. El servidor conserva el último inventario validado en D1. `POST /api/import` recibe el Excel oficial y valida el período, la firma del archivo, la hoja Operating_PR y el número de plantas antes de guardar. `GET /api/inventory` devuelve el inventario persistido.
 
-La revisión semanal está **pendiente de activación** porque la cuenta alcanzó el límite de cinco tareas programadas. No hay una tarea semanal activa para este dashboard. Ver [UPDATE_WORKFLOW.md](UPDATE_WORKFLOW.md) para el procedimiento. No se incluyen credenciales en el repositorio.
+La revisión automática está **pendiente de activación**. La política es revisar las publicaciones mensuales de EIA y actualizar el inventario únicamente si cambia su contenido para Puerto Rico. Un nuevo mes o cambios fuera de Puerto Rico no generan una nueva versión. Ver [UPDATE_WORKFLOW.md](UPDATE_WORKFLOW.md) para el procedimiento. No se incluyen credenciales en el repositorio.
 
 ## Desarrollo
 

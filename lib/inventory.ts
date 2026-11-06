@@ -17,3 +17,5 @@ export function normalize(rows:Record<string,any>[]):Asset[]{
  } return [...byId.values()].sort((a,b)=>total(b)-total(a));
 }
 export const total=(a:Asset,storage=true)=>Object.entries(a.capacities).reduce((s,[k,v])=>s+(storage||k!=='battery'?v:0),0);
+// Compare inventory content independently of row order, review dates and release month.
+export const inventoryKey=(assets:Asset[])=>JSON.stringify([...assets].sort((a,b)=>a.id.localeCompare(b.id)).map(a=>[a.id,a.name,a.operator,a.county,a.lat,a.lon,a.generators,Object.entries(a.capacities).sort(([a],[b])=>a.localeCompare(b))]));
