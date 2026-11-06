@@ -2,7 +2,7 @@
 
 Dashboard de capacidad instalada por planta y tecnología, basado en el inventario oficial **EIA-860M / Operating_PR**.
 
-[Abrir dashboard](https://sur18-puerto-rico-energia.bydproyectosca.chatgpt.site)
+[Abrir dashboard](https://ra-sur18pr.bydproyectosca.chatgpt.site)
 
 ## Funciones
 
@@ -49,3 +49,13 @@ Runtime: React 19, Vinext/Vite, Cloudflare Workers, D1 y Drizzle. El despliegue 
 - `docs/RUNTIME.md`: documentación del runtime y desarrollo local.
 
 Las cifras representan capacidad nominal instalada, no generación instantánea ni disponibilidad operativa.
+
+## Exploración y antigüedad
+
+El segundo filtro permite ocultar y restaurar plantas después de filtrar por tecnología u operador. También se puede usar clic derecho → Ocultar, tecla Supr sobre un recuadro o arrastrar una planta hasta la zona de exclusión. Se recalculan las áreas y los totales; no se borran registros. La exclusión afecta todas las tecnologías de una misma planta.
+
+La pestaña Antigüedad usa el año y mes de operación de cada unidad en Operating_PR, no la fecha de fundación de la central. Muestra rangos por planta, edad máxima, edad ponderada por MW, detalle por unidad y retiros reportados a EIA. Los años desconocidos no se infieren.
+
+Los umbrales de revamping y decomisionamiento son escenarios ilustrativos editables por tecnología, no recomendaciones certificadas ni órdenes de retiro. La evaluación real depende de condición, historial, eficiencia, seguridad y necesidades de red. Los objetivos se calculan como año de operación más umbral. El CSV exporta los parámetros y resultados de la vista seleccionada.
+
+La plataforma mantiene el segmento de cuenta en el dominio. La dirección operativa es https://ra-sur18pr.bydproyectosca.chatgpt.site ; el cambio de etiqueta no permite asignar por sí solo el dominio raíz ra-sur18pr.chatgpt.site.

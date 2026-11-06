@@ -2,7 +2,14 @@ import {env} from 'cloudflare:workers';
 import * as XLSX from 'xlsx';
 import seed from '../data/seed.json';
 import {normalize,total,inventoryKey,type Inventory} from './inventory';
-export async function readInventory():Promise<Inventory>{const row=await env.DB!.prepare('SELECT payload FROM snapshots WHERE id = ?').bind('current').first<{payload:string}>();return row?JSON.parse(row.payload):seed as unknown as Inventory;}
+export async function readInventory():Promise<Inventory>{
+ const row=await env.DB!.prepare('SELECT payload FROM snapshots WHERE id = ?').bind('current').first<{payload:string}>();
+ const baseline=seed as unknown as Inventory;const current:Inventory=row?JSON.parse(row.payload):baseline;
+ // Enrich the original September snapshot only when its inventory exactly matches the official baseline.
+ if(current.period===baseline.period&&current.assets.some(a=>!a.units)&&inventoryKey(current.assets.map(a=>({...a,units:[]})))===inventoryKey(baseline.assets.map(a=>({...a,units:[]})))){
+ current.assets=current.assets.map(a=>({...a,units:baseline.assets.find(s=>s.id===a.id)?.units}));
+ }return current;
+}
 export async function importInventory(buffer:ArrayBuffer,period:string,sourceUrl:string){
  if(!/^\d{4}-(0[1-9]|1[0-2])$/.test(period))throw Error('Período inválido');
  if(!/^https:\/\/www\.eia\.gov\/electricity\/data\/eia860m\/xls\/[a-z]+_generator\d{4}\.xlsx$/.test(sourceUrl))throw Error('Fuente no permitida');
