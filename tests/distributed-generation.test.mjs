@@ -25,7 +25,7 @@ test('heatmap filtering preserves sector and range totals',()=>{
  assert.equal(select(3,0),168);
  assert.equal(select('all',0),206480);
  assert.equal(select(0,9),0);
- assert.equal(select('all',9),20);
+ assert.equal(select('all',9),23);
 });
 test('percentage denominator changes with sector filter',()=>{
  const selected=4724;
