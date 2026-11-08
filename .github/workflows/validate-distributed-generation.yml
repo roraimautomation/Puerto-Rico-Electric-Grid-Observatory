@@ -1,0 +1,30 @@
+name: Validate distributed generation PR
+on:
+  pull_request:
+    paths:
+      - 'app/**'
+      - 'lib/**'
+      - 'package*.json'
+      - 'tsconfig.json'
+      - '.github/workflows/validate-distributed-generation.yml'
+  push:
+    branches:
+      - 'feature/generacion-distribuida-luma-q1-2026'
+permissions:
+  contents: read
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: TypeScript typecheck
+        run: npx tsc --noEmit
+      - name: Production build (no deployment)
+        run: npm run build
