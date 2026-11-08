@@ -4,6 +4,10 @@ Dashboard de capacidad instalada por planta y tecnología, basado en el inventar
 
 [Abrir dashboard](https://ra-sur18pr.bydproyectosca.chatgpt.site)
 
+## Navegación
+
+Cinco pestañas integradas: **Treemap**, **Inventario**, **Antigüedad**, **Escenarios** y **Generación Distribuida**. Las primeras cuatro utilizan el inventario EIA-860M; la quinta utiliza el informe trimestral LUMA Q1 2026 (expediente NEPR-MI-2019-0016). El histórico anterior a la quinta pestaña está preservado en la rama `archive/observatorio-3-pestanas-pre-gd-2026-11-08` (el nombre de la rama es histórico; contenía cuatro pestañas).
+
 ## Funciones
 
 - Treemap con áreas proporcionales a MW y colores de las referencias SUR18.
