@@ -8,7 +8,7 @@ function Bars({title,values,unit=''}:{title:string;values:{name:string;value:num
 export default function DistributedGeneration(){
  const [sector,setSector]=useState('all'),[range,setRange]=useState('all'),[scale,setScale]=useState<'sector'|'global'>('sector');
  const sectorIndex=Number(sector),rangeIndex=Number(range);
- const selectedTotal=sectorRows.reduce((acc,row,i)=>acc+(sector==='all'||i===sectorIndex?row.values.reduce((s,v,j)=>s+(range==='all'||j===rangeIndex?v:0),0):0),0);
+ const selectedTotal=sectorRows.reduce((acc,row,i)=>acc+(sector==='all'||i===sectorIndex?row.values.reduce<number>((s,v,j)=>s+(range==='all'||j===rangeIndex?v:0),0):0),0);
  const denominator=sector==='all'?kpis.projects:sum(sectorRows[sectorIndex].values);
  const percent=denominator?100*selectedTotal/denominator:0;
  const csv=()=>{const rows=[['Sector','Rango kW','Proyectos'],...sectorRows.flatMap((s,i)=>s.values.flatMap((v,j)=>(sector==='all'||sector===String(i))&&(range==='all'||range===String(j))?[[s.sector,capacityRanges[j],String(v)]]:[]))];const content='\uFEFF'+rows.map(r=>r.map(v=>'"'+v.replaceAll('"','""')+'"').join(',')).join('\r\n');const u=URL.createObjectURL(new Blob([content],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=u;a.download='SUR18-GD-LUMA-Q1-2026.csv';a.click();URL.revokeObjectURL(u);};
