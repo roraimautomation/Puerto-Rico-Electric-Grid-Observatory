@@ -6,6 +6,7 @@ on:
       - 'lib/**'
       - 'package*.json'
       - 'tsconfig.json'
+      - 'tests/**'
       - '.github/workflows/validate-distributed-generation.yml'
   push:
     branches:
@@ -26,5 +27,7 @@ jobs:
         run: npm ci
       - name: TypeScript typecheck
         run: npx tsc --noEmit
+      - name: Unit tests (no deployment)
+        run: node --experimental-strip-types --test tests/distributed-generation.test.mjs
       - name: Production build (no deployment)
         run: npm run build
