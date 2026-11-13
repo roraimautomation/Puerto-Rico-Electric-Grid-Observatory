@@ -70,7 +70,7 @@ La pestaña **Escenarios** permite seleccionar unidades, definir energía objeti
 
 ## Usabilidad del observatorio
 
-- No se ofrecen funciones de exportación CSV o JSON en las pestañas del observatorio.
+- No se ofrecen funciones de exportación CSV o JSON ni un botón de revisión manual de la fuente en las pestañas del observatorio.
 - «Resultados de la selección» identifica búsqueda, tecnología, operador y plantas ocultas. Los indicadores cuentan todas las tecnologías de las plantas seleccionadas; el gráfico conserva el filtro por tecnología.
 - «Restablecer toda la vista» borra búsqueda, tecnología, operador, exclusiones y ordenación; mantiene la pestaña actual y los supuestos de escenarios.
 - «Ver lista legible de plantas» ofrece nombres completos y capacidades, también para plantas cuyo recuadro es pequeño.
