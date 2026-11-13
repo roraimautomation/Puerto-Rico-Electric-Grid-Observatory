@@ -23,6 +23,6 @@ El preset «Solar distribuida · enfoque PR100» es una propuesta simplificada d
 
 No se modelan demanda, meteorología y despacho horarios, reservas, ELCC, fallas, huracanes, red, combustible, degradación, profundidad de descarga, impuestos, incentivos, terrenos, interconexión o demolición. Capacidad nominal, energía anual y potencia firme no son intercambiables. Este balance no justifica por sí solo ningún retiro ni identifica una solución de menor costo validada.
 
-Los supuestos y cuatro capturas se guardan en localStorage del navegador. El JSON exporta unidades, periodo, supuestos, resultados, comparación de presets y capturas. Las capturas conservan el contexto original aunque cambie el inventario. No se guardan en el servidor ni en el repositorio del usuario automáticamente.
+Los supuestos y cuatro capturas se guardan en localStorage del navegador. Las capturas conservan el contexto original aunque cambie el inventario. No se guardan en el servidor ni en el repositorio del usuario automáticamente.
 
 Validación del cálculo: `node --experimental-strip-types --test tests/replacement-scenarios.test.mjs`.
