@@ -20,7 +20,7 @@ Los datos del heatmap son número de proyectos, no potencia exacta por rango. El
 
 ## Revisión y pruebas pendientes
 - Ejecutar `npx tsc --noEmit`, `npm run build` y pruebas manuales en entorno local antes de fusionar.
-- Probar los 4 sectores × 10 rangos, selección de celda, escala sector/global, reinicio, exportación CSV y navegación móvil.
+- Probar los 4 sectores × 10 rangos, selección de celda, escala sector/global, reinicio y navegación móvil.
 - Verificar valores contra el PDF original y accesibilidad de controles.
 - Confirmar que la navegación existente, el inventario EIA y los escenarios no cambian.
 - No fusionar ni desplegar sin autorización.
