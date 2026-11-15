@@ -1,5 +1,7 @@
 # SUR18 · Puerto Rico Electric Grid Observatory
 
+> **Versión candidata 0.2.0-rc.1:** acceso con Supabase Auth y RLS, pendiente de integración y publicación. Consulta [docs/ACCESS_RLS.md](docs/ACCESS_RLS.md) para permisos, pruebas y migración. La descripción D1 que sigue corresponde al despliegue anterior.
+
 Dashboard de capacidad instalada por planta y tecnología, basado en el inventario oficial **EIA-860M / Operating_PR**.
 
 [Abrir dashboard](https://ra-sur18pr.bydproyectosca.chatgpt.site)
@@ -75,4 +77,4 @@ La pestaña **Escenarios** permite seleccionar unidades, definir energía objeti
 - «Restablecer toda la vista» borra búsqueda, tecnología, operador, exclusiones y ordenación; mantiene la pestaña actual y los supuestos de escenarios.
 - «Ver lista legible de plantas» ofrece nombres completos y capacidades, también para plantas cuyo recuadro es pequeño.
 - Las fichas usan un diálogo modal nativo, recorrido circular del teclado, cierre con Escape y recuperación del foco.
-- Los escenarios guardados permanecen en el navegador; se informa si no se pueden guardar.
+- En la nueva versión local, los escenarios se guardan por cuenta con RLS; los ajustes sin guardar no persisten. La versión publicada anterior usa guardado en navegador.
