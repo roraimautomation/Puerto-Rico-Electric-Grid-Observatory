@@ -1,0 +1,38 @@
+name: Validate access and RLS
+on:
+  pull_request:
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'supabase/**'
+      - 'tests/**'
+      - 'package*.json'
+      - '.github/workflows/validate-access-rls.yml'
+  push:
+    branches:
+      - 'release/observatorio-0.2.0-rc.1'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install locked application dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Install locked PostgreSQL test runtime
+        run: npm ci --prefix supabase/tests --ignore-scripts --no-audit --no-fund
+      - name: TypeScript
+        run: npx tsc --noEmit
+      - name: Application and HTTP handler tests
+        run: npm test
+      - name: PostgreSQL RLS, grants and trigger tests
+        run: npm run test:rls
+      - name: Production build without deployment
+        run: npm run build

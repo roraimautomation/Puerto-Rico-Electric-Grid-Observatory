@@ -43,3 +43,6 @@ yarn-error.log*
 
 # OS metadata
 .DS_Store
+
+# Isolated PostgreSQL test runtime
+/supabase/tests/node_modules/

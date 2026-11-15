@@ -1,3 +1,4 @@
 import {refreshInventory} from '../../../lib/server-inventory';
-// Protected by owner-private Sites access, including the platform service-access boundary.
-export async function POST(){try{return Response.json(await refreshInventory());}catch(e){return Response.json({error:e instanceof Error?e.message:'Error de actualización'},{status:502});}}
+import {requestSession} from '../../../lib/supabase-server';
+import {assertSameOrigin,isBearerRequest,accessError} from '../../../lib/access';
+export async function POST(request:Request){try{if(!isBearerRequest(request))assertSameOrigin(request);const s=await requestSession(request,true);return Response.json(await refreshInventory(s.token),{headers:{'Cache-Control':'no-store'}});}catch(e){return accessError(e);}}
